@@ -1,0 +1,4 @@
+# openstack (Kilo stable) needs version <0.10.0
+# once they update requirement, we can push >=0.10.0 versions
+# check: https://github.com/openstack/requirements/blob/stable/kilo/global-requirements.txt
+watchurl=https://pypi.python.org/simple/sqlalchemy-migrate ../../packages/source/s/sqlalchemy-migrate/sqlalchemy-migrate-(0\.9\..*).tar.gz
