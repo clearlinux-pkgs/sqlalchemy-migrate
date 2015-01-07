@@ -1,0 +1,1 @@
+py.test-2.7  --ignore=py2/lib/migrate/tests/changeset/databases/test_ibmdb2.py || :
