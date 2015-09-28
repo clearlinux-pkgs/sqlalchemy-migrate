@@ -1,4 +1,5 @@
 PKG_NAME := sqlalchemy-migrate
-URL := https://pypi.python.org/packages/source/s/sqlalchemy-migrate/sqlalchemy-migrate-0.9.7.tar.gz
+URL := http://pypi.debian.net/sqlalchemy-migrate/sqlalchemy-migrate-0.10.0.tar.gz
+ARCHIVES :=
 
 include ../common/Makefile.common
