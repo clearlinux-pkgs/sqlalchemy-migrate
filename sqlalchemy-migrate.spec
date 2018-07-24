@@ -4,13 +4,15 @@
 #
 Name     : sqlalchemy-migrate
 Version  : 0.11.0
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/sqlalchemy-migrate/sqlalchemy-migrate-0.11.0.tar.gz
 Source0  : http://pypi.debian.net/sqlalchemy-migrate/sqlalchemy-migrate-0.11.0.tar.gz
 Summary  : Database schema migration for SQLAlchemy
 Group    : Development/Tools
 License  : MIT
 Requires: sqlalchemy-migrate-bin
+Requires: sqlalchemy-migrate-python3
+Requires: sqlalchemy-migrate-license
 Requires: sqlalchemy-migrate-python
 Requires: SQLAlchemy
 Requires: Tempita
@@ -20,7 +22,7 @@ Requires: six
 Requires: sqlparse
 BuildRequires : MySQL-python
 BuildRequires : Tempita
-BuildRequires : configparser-python
+BuildRequires : buildreq-distutils3
 BuildRequires : decorator-python
 BuildRequires : extras
 BuildRequires : mariadb
@@ -30,7 +32,6 @@ BuildRequires : postgresql
 BuildRequires : psycopg2
 BuildRequires : py
 BuildRequires : pytest
-BuildRequires : python-dev
 BuildRequires : python-mimeparse
 BuildRequires : python-mock
 BuildRequires : python-subunit
@@ -48,33 +49,52 @@ BuildRequires : testtools-python
 BuildRequires : traceback2
 
 %description
-This is a database migration repository.
-More information at
-http://code.google.com/p/sqlalchemy-migrate/
+==================
 
 %package bin
 Summary: bin components for the sqlalchemy-migrate package.
 Group: Binaries
+Requires: sqlalchemy-migrate-license
 
 %description bin
 bin components for the sqlalchemy-migrate package.
 
 
+%package license
+Summary: license components for the sqlalchemy-migrate package.
+Group: Default
+
+%description license
+license components for the sqlalchemy-migrate package.
+
+
 %package python
 Summary: python components for the sqlalchemy-migrate package.
 Group: Default
+Requires: sqlalchemy-migrate-python3
 
 %description python
 python components for the sqlalchemy-migrate package.
+
+
+%package python3
+Summary: python3 components for the sqlalchemy-migrate package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the sqlalchemy-migrate package.
 
 
 %prep
 %setup -q -n sqlalchemy-migrate-0.11.0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489092106
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1532447302
 python3 setup.py build -b py3
 
 %check
@@ -83,10 +103,13 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 py.test-2.7  --ignore=py2/lib/migrate/tests/changeset/databases/test_ibmdb2.py || :
 %install
-export SOURCE_DATE_EPOCH=1489092106
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/doc/sqlalchemy-migrate
+cp COPYING %{buildroot}/usr/share/doc/sqlalchemy-migrate/COPYING
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -96,6 +119,13 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 /usr/bin/migrate
 /usr/bin/migrate-repository
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/sqlalchemy-migrate/COPYING
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*
