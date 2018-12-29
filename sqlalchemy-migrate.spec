@@ -4,7 +4,7 @@
 #
 Name     : sqlalchemy-migrate
 Version  : 0.11.0
-Release  : 28
+Release  : 29
 URL      : http://pypi.debian.net/sqlalchemy-migrate/sqlalchemy-migrate-0.11.0.tar.gz
 Source0  : http://pypi.debian.net/sqlalchemy-migrate/sqlalchemy-migrate-0.11.0.tar.gz
 Summary  : Database schema migration for SQLAlchemy
