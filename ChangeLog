@@ -1,11 +1,25 @@
 CHANGES
 =======
 
+0.12.0
+------
+
+* Change title in README.rst
+* Don't use deprecated / non-functional "force" parameter
+* Use legacy\_alter\_table ON in sqlite recreate\_table
+* Remove py26 support
+* Add .eggs in .gitignore
+* Import MutableMapping from the correct Python module
+* Update mailinglist from dev to discuss
+* Get rid of psycopg2 warnings by disabling wheels
+* Enforce that pbr used is >= 1.8
+
 0.11.0
 ------
 
 * Use a modern PBR package
 * Prepare for using standard python tests
+* Fix spelling mistake
 * Set autoincrement to False when modifying to non-Integer datatype
 * Raise VersionNotFoundError instead of KeyError
 * Fix DeprecationWarning on setuptools >= 11.3
@@ -15,9 +29,9 @@ CHANGES
 ------
 
 * Update URLs in documentation
-* Add VerNum.__index__() for Python 3 support
+* Add VerNum.\_\_index\_\_() for Python 3 support
 * Fixes usage function for Py3
-* Unblock migrate (py26 and py3* testing issues)
+* Unblock migrate (py26 and py3\* testing issues)
 
 0.9.7
 -----
@@ -38,11 +52,11 @@ CHANGES
 0.9.5
 -----
 
-* Don't run the test if _setup() fails
+* Don't run the test if \_setup() fails
 * Correcting minor typo
 * Fix .gitignore for .tox and .testrepository
 * allow dropping fkeys with sqlite
-* Add pretty_tox setup
+* Add pretty\_tox setup
 * script: strip comments in SQL statements
 
 0.9.4
@@ -75,7 +89,7 @@ CHANGES
 
 * Move patch from oslo to drop unique constraints with sqlite
 * Port to Python3
-* tests: Replace "self.assert_" by "self.assertTrue"
+* tests: Replace "self.assert\_" by "self.assertTrue"
 
 0.9
 ---
@@ -85,7 +99,7 @@ CHANGES
 * fix scripttest compat
 * Use native quote attribute introduced in sqla 0.9
 * Fix genmodel for SQLA 0.9
-* Conditionally import ibmdb2/ibm_db_sa
+* Conditionally import ibmdb2/ibm\_db\_sa
 * migrate needs subunit >= 0.0.18
 * UniqueConstraint named and escaped twice
 * Fix 3 files with Windows line endings to Unix line endings
@@ -107,14 +121,14 @@ CHANGES
 0.8.2
 -----
 
-* Un-break the version in migrate/__init__.py
+* Un-break the version in migrate/\_\_init\_\_.py
 * Fix the version number to match the last release
 
 0.8.1
 -----
 
-* Remove the tag_build line from setup.cfg
-* Drop setuptools_git test requirement
+* Remove the tag\_build line from setup.cfg
+* Drop setuptools\_git test requirement
 
 0.8
 ---
@@ -158,15 +172,15 @@ CHANGES
 * rewrap README
 * update sqlalchemy documentation links use explicit code-block markup
 * update intersphinx configuration, add sphinxcontrib.issuetracker configuration
-* ignore vim swap files and docs/_static
+* ignore vim swap files and docs/\_static
 * document adding/droping columns (fixes issue 104)
 * PEP-8 compliant script templates
 * add regression test (fixes issue 105)
 * fix issues with ConfigParser and existing repositories (fixes issue 115)
 * give credits to Benoît Allard
-* remove obsolete manage.py_tmpl (related to issue 121)
+* remove obsolete manage.py\_tmpl (related to issue 121)
 * update changelog (add issue 121 bugfix)
-* generate if __name__ == "__main__" in manage.py (fixes issue 121)
+* generate if \_\_name\_\_ == "\_\_main\_\_" in manage.py (fixes issue 121)
 * update changelog (include #125 fix)
 * merge e5bd2821eea8 from https://code.google.com/r/alyazdi-patches/ (fixes issue 125)
 * update changelog
@@ -181,12 +195,12 @@ CHANGES
 * fixed issue 129
 * fixed issue 83
 * remove unused import
-* Fix issue 124: ignore sqlite_sequence in comparing db to model
+* Fix issue 124: ignore sqlite\_sequence in comparing db to model
 * Use two models in generated migrations. Test column addition and removal
 * Put constraints (positional) before args (keywords)
 * Output has changed even without the SQLa patch, update #122 tests
 * Fix and test issue 118. Clarify genmodel transformations
-* Fix column creation in make_update_script_for_model
+* Fix column creation in make\_update\_script\_for\_model
 * More concise declarative output
 * More pep8 compliant declarative output
 * Fix some tests that broke when adding descriptions for sql scripts
@@ -200,7 +214,7 @@ CHANGES
 -----
 
 * Added signature for changeset 35038c66152b
-* set migrate.__version__ to 0.7.1
+* set migrate.\_\_version\_\_ to 0.7.1
 * finalize changelog for 0.7.1
 * fix issue tracking and source code URLs
 * fix column.create() properly
@@ -211,7 +225,7 @@ CHANGES
 ---
 
 * update version number in docs/conf.py
-* add migrate.__version__ (Fixes issue 111)
+* add migrate.\_\_version\_\_ (Fixes issue 111)
 * update changelog and version information
 * bump version number to 0.7 to indicate SQLA 0.7 compatibility
 * no special treatment for SQLA 0.7 required in migrate.changeset.ansisql
@@ -219,10 +233,10 @@ CHANGES
 * fix unit test for adding new columns with foreign keys
 * use DatabaseError instead of ProgrammingError because behaviour seems to be database dependent (addresses issue 122)
 * table.drop() raises ProgrammingError in SQLAlchemy 0.7 instead of SQLError (addresses #112)
-* SQLAlchemy 0.7's column.foreign_keys is a set and has no _list (addresses #112)
+* SQLAlchemy 0.7's column.foreign\_keys is a set and has no \_list (addresses #112)
 * use proper encoding instead of True (addresses #112)
 * fix one more test (addresses #112)
-* use Table._columns to remove columns (addresses #112)
+* use Table.\_columns to remove columns (addresses #112)
 * psycopg2 downloads from initrd.org work without workaround
 * add Developing with migrations tutorial link
 * merge
@@ -235,9 +249,9 @@ CHANGES
 -----
 
 * finalize changelog for 0.6.1
-* Bring back alter_metadata on ColumnDelta: it seems intertwined with a lot of the tests. So, it's a private API now..
+* Bring back alter\_metadata on ColumnDelta: it seems intertwined with a lot of the tests. So, it's a private API now..
 * try to get firebird stuff working with 0.6.6
-* remove the alter_metadata feature
+* remove the alter\_metadata feature
 * work around firebird's insistence that indexes and constraints are dropped before columns that are references by them
 * fix sqlite column dropper now that the table is only modified after the visitor is run
 * firebird can only drop named foreign keys
@@ -252,7 +266,7 @@ CHANGES
 * merge
 * adding faq section to docs
 * make migrate.changeset.constraint.ForeignKeyConstraint.autoname work with SQLAlchemy 0.5 and 0.6
-* use _index_identifier instead of _validate_identifier if _validate_identifier does not exist in migrate/changeset/ansisql.py
+* use \_index\_identifier instead of \_validate\_identifier if \_validate\_identifier does not exist in migrate/changeset/ansisql.py
 * use absolute imports of exception classes (fixes tests)
 * fix generation of foreign key constraint name in migrate.changeset.constraint.ForeignKeyConstraint.autoname
 * merge
@@ -268,14 +282,14 @@ CHANGES
 * clear out the test db for each test, making tests more isolated
 * for when logging is just annoying ;-)
 * silence logger that SA adds
-* give better feedback when errors occur in _setup or _teardown
+* give better feedback when errors occur in \_setup or \_teardown
 * quit screwing with the testing frameworks..
 * update feature matrix
 * correct change log structure
 * Fix issue 94 - it was impossible to add a column with a non-unique index
 * implement column adding with foreign keys on sqlite
-* Fix bug with column dropping involving foreign keys. Bonus: remove_from_table now understands foreign keys
-* fix for issue 96: deleting a column in sqlite shouldn't delete all indexes bonus: remove_from_table now removes indexes
+* Fix bug with column dropping involving foreign keys. Bonus: remove\_from\_table now understands foreign keys
+* fix for issue 96: deleting a column in sqlite shouldn't delete all indexes bonus: remove\_from\_table now removes indexes
 * another py2.4 fixture
 * dammit!
 * attempt at improving the api docs a little
@@ -288,7 +302,7 @@ CHANGES
 * disable psycopg install while initd.org is offline
 * silence console output
 * hopefully make py2.4 compatible
-* - capture deprecation warnings and assert they re as they should be - re-word alter_column deprecation warning to make more sense
+* - capture deprecation warnings and assert they re as they should be - re-word alter\_column deprecation warning to make more sense
 * remove default of dropping on pdb on test error or failure
 * fix last exception import
 * move all exception classes to migrate.exceptions
@@ -316,7 +330,7 @@ CHANGES
 * merge
 * better document summary of changeset actions
 * adding connection keyword to ORM methods
-* use migrate.tests.* instead of tests.* in find_packages argument
+* use migrate.tests.\* instead of tests.\* in find\_packages argument
 * use stdout for logging.INFO and lower; for the rest use stderr
 * fix deprecation warning when using old script synta
 * update README and fix last bugs
@@ -340,7 +354,7 @@ CHANGES
 * make tests use a virtualenv for 'migrate' shell command
 * change print statements to log.info
 * add more recent version of kinterbadb due to soureforge not being maintained anymore. Thanks btami\!
-* add firebird to test_db.cfg.tmpl; fix bug when dropping a column in firebird: also drop related constraint or index
+* add firebird to test\_db.cfg.tmpl; fix bug when dropping a column in firebird: also drop related constraint or index
 * revert 2688cdb980
 * update setup.py
 * run shell diff tests with correct environment
@@ -362,11 +376,11 @@ CHANGES
 * removing mx.DateTime from test deps because pip crashes
 * add mx.DateTime to test dep
 * add mysql driver test deps
-* change test_db database name to more verbose name
+* change test\_db database name to more verbose name
 * partly fix SA0.6 tests on postgres
 * fix docs
 * fix documentation meta.bind(engine) -> meta.bind = engine; thanks mvt
-* add .coverage and test_db.cfg to .hgignore
+* add .coverage and test\_db.cfg to .hgignore
 * more import fixes
 * fixing models import
 * rename test package to tests (problems with pytest dist)
@@ -378,10 +392,10 @@ CHANGES
 * updating MANIFEST.in, fixing virtualenv tests usage, 2 failed tests
 * apply Emil Kroymann's patch for Issue 75
 * apply patch by Jason Newton
-* remove bad reference to migrate_engine
+* remove bad reference to migrate\_engine
 * Add table declarations for tables with diff
-* Add support for ALTER TABLE add/drop columns in make_update_script_for_model
-* adding sql_script template customizations, removing unneeded imports, updating docs
+* Add support for ALTER TABLE add/drop columns in make\_update\_script\_for\_model
+* adding sql\_script template customizations, removing unneeded imports, updating docs
 * merge
 * remove versioning.base in favor of versioning.config
 * removing deprecated logger module
@@ -389,11 +403,11 @@ CHANGES
 * we are using Tempita for templates; adding most basic pylons template
 * add option to customize templates and use multiple themes
 * applying patch for issue #61 by Michael Bayer
-* add disable_logging option
+* add disable\_logging option
 * use logging module for output, fixes #26
 * add tests for plain API, fixed some small bugs
-* separating test_shell and test_api, replacing shell hacks with ScriptTest
-* add populate_default kwarg to column.create, fixes issue #50
+* separating test\_shell and test\_api, replacing shell hacks with ScriptTest
+* add populate\_default kwarg to column.create, fixes issue #50
 * adding .hgignore
 * convert svn to hg
 * applying patch for issue #60 from entequak
@@ -401,10 +415,10 @@ CHANGES
 * removing old changelog
 * change dev location
 * update changelog internal links
-* updated changeset documentation, added alter_metadata to all schema classes
+* updated changeset documentation, added alter\_metadata to all schema classes
 * add not supported exceptions for sqlite constraints
 * always return delta when using alter constructs
-* - completely refactored ColumnDelta to extract differences between columns/parameters (also fixes issue #23) - fixed some bugs (passing server_default) on column.alter - updated tests, specially ColumnDelta and column.alter - introduced alter_metadata which can preserve altering existing objects if False (defaults to True) - updated documentation
+* - completely refactored ColumnDelta to extract differences between columns/parameters (also fixes issue #23) - fixed some bugs (passing server\_default) on column.alter - updated tests, specially ColumnDelta and column.alter - introduced alter\_metadata which can preserve altering existing objects if False (defaults to True) - updated documentation
 * adding basic support for firebird, fixes #55
 * finally, tests pass for all supported dialects
 * add ability to download development version from pypi
@@ -412,17 +426,17 @@ CHANGES
 * some more PEP8 love
 * fix bug when initializing CheckConstraint
 * updated changeset tests. whole package is finally PEP8. fixed mysql tests&bugs. updated docs where apropriate. changeset test coverage almost at 100%
-* - refactor migrate.changeset; - visitors are refactored to be more unified - constraint module is refactored, CheckConstraint is added - documentation is partialy updated, dialect support table is added (unfinished) - test_constraint was updated NOTE: oracle and mysql were not tested, *may be broken*
+* - refactor migrate.changeset; - visitors are refactored to be more unified - constraint module is refactored, CheckConstraint is added - documentation is partialy updated, dialect support table is added (unfinished) - test\_constraint was updated NOTE: oracle and mysql were not tested, \*may be broken\*
 * update docs, delete obsolete code in constraints
 * update documentation
-* removed magical behavior with importing migrate_engine, now engine is passed to upgrade/downgrade functions
+* removed magical behavior with importing migrate\_engine, now engine is passed to upgrade/downgrade functions
 * use sqlalchemy preparer to do SQL quote formatting. this is a raw change, tests are yet to be written
 * lipstick changes
 * update tests for schema, refactor a bit
 * update README, add docs to repository.py and schema.py
 * fix setup.py
 * updated migrate.versioning.repository tests and docs, update README
-* update tests and docs for migrate.versioning.script.*
+* update tests and docs for migrate.versioning.script.\*
 * change isinstance(obj, (str, unicode)) to isinstance(obj, basestring) as suggested by Piotr Ożarowski
 * start work on 0.5.5
 * add changelog, update util.py docs
@@ -431,26 +445,26 @@ CHANGES
 * added tests for versioning.version.py, refactored the module
 * add tests for low level util.py
 * make @usedb work correctly
-* Issue 34; preview_sql now correctly displays SQL on python and SQL scripts. (tests added, docs still missing)
+* Issue 34; preview\_sql now correctly displays SQL on python and SQL scripts. (tests added, docs still missing)
 * use unittest.TestCase for tests
 * use entrypoints terminology to parse dotted model class names
 * remove the duplicate
-* extras_require is a bit tricky, use tests_require instead
+* extras\_require is a bit tricky, use tests\_require instead
 * fix typechecking
 * update CHANGELOG
-* Issue 38; add ability to pass arguments/dict for create_engine func
+* Issue 38; add ability to pass arguments/dict for create\_engine func
 * refactor api.py a bit, lots of PEP8 love
 * add asbool function to make api parsing easier
 * some more PEP8 love all over the files
 * apply some PEP8 love to template.py
-* apply PEP8 to version.py, fixed notification of missing test_db.cfg
+* apply PEP8 to version.py, fixed notification of missing test\_db.cfg
 * apply option parsing patch for Issue 54 by iElectric
 * start work on 0.5.4
-* fix Issue 52 by removing unneeded parameters from object.__new__ calls
+* fix Issue 52 by removing unneeded parameters from object.\_\_new\_\_ calls
 * update CHANGELOG, set version to 0.5.3
 * apply patch for Issue 29 by Jonathan Ellis
 * add support for ondelete and oncascade to ANSI-SQL foreign key creation
-* unignore _build, recreate _build and ignore everything below it (fixes Issue 49)
+* unignore \_build, recreate \_build and ignore everything below it (fixes Issue 49)
 * update CHANGELOG, set version to 0.5.2
 * mark ALTER TABLE ADD FOREIGN KEY as unsupported by SQLite update corresponding test case
 * integrate unit test fix by Adam Lowry
@@ -458,7 +472,7 @@ CHANGES
 * whoops, needed to update setup.cfg too for Sphinx build location
 * add Sphinx Makefile, and use underscore prefixes for some Sphinx stuff to be more Windows-friendly
 * integrate patch for Issue 36, update CHANGELOG
-* fix Issue 47 by moving sphinx and nose dependencies to extras_require
+* fix Issue 47 by moving sphinx and nose dependencies to extras\_require
 * fix upload
 * prepare release 0.5.1.1
 * removed misleading docs/Makefile
@@ -512,43 +526,43 @@ CHANGES
 * missed a postgres identifier quoting on renaming
 * added hook functions which allow the dialects to specify how to indicate identifiers, as this is different in postgres
 * integrate patch for Issue 33
-* add --declarative option to create_model to generate new declarative style
-* get test_changeset working in oracle - just more server_default issues
+* add --declarative option to create\_model to generate new declarative style
+* get test\_changeset working in oracle - just more server\_default issues
 * add support for SA 0.5
-* - integrate patch by Toshio Kuratomi sent to migrate-users 2008/07/30   06:08 (GMT+01:00) - pylint clean migrate/versioning/migrate_repository.py
-* * create bugfix branch for 0.4.4 * prepare trunk for new development
-* * add 0.4.5 changes to CHANGELOG
+* - integrate patch by Toshio Kuratomi sent to migrate-users 2008/07/30   06:08 (GMT+01:00) - pylint clean migrate/versioning/migrate\_repository.py
+* \* create bugfix branch for 0.4.4 \* prepare trunk for new development
+* \* add 0.4.5 changes to CHANGELOG
 * applied patch for shell test by Toshio Kuramoti
 * support default for sql scripts
 * add unit test to make sure we can handle more than 999 revisions
 * finish implementing repository migration script
 * make repository format flatter and get rid of commit command
-* * applied a slightly modified version of the patch for issue #20 by   Christophe de Vienne which uses a logger for 'migrate.versioning'   instead of the root logger
+* \* applied a slightly modified version of the patch for issue #20 by   Christophe de Vienne which uses a logger for 'migrate.versioning'   instead of the root logger
 * almost done issue 12:  generate downgrade method for schema migration
 * fix issue 18 by applying given patch
-* enhance command update_db_from_model to bump db_version to latest in repository
+* enhance command update\_db\_from\_model to bump db\_version to latest in repository
 * improve diff unit tests to make sure they don't drop data when column type changes; make the code pass the tests
 * make diff unit tests more robust
-* Change make_update_script_for_model shell command to compare two versions of Python model (issue #12); add shell test for new diff'ing apis
+* Change make\_update\_script\_for\_model shell command to compare two versions of Python model (issue #12); add shell test for new diff'ing apis
 * - merged CHANGELOG from bugfix branch
 * - release 0.4.4
 *  r1081@denkpolster:  jan | 2008-04-04 18:48:20 +0200  - fix for SQLAlchemy deprecation warning when creating version table
 *  r1035@denkpolster:  jan | 2008-04-02 14:39:05 +0200  - fix unit tests with py-0.9.1, fixes #17
 * code reorg: create new utility method loadModel for db diffing
 * - patch by pwannygoodness for Issue #15 integrated
-* - merge CHANGELOG from branch bugfix-0_4_2 to trunk - increase trunk and branch bugfix-0_4_2 version numbers - rename branch bugfix-0_4_2 to bugfix-0_4_3
+* - merge CHANGELOG from branch bugfix-0\_4\_2 to trunk - increase trunk and branch bugfix-0\_4\_2 version numbers - rename branch bugfix-0\_4\_2 to bugfix-0\_4\_3
 * Execute sqlite-specific code to alter a table inside one transaction so that we can't leave the database in a nasty state
-* When running schemadiff tests exclude table migrate_version because it's left around after a previous round of tests
-* rename model/db sync commands and add new command update_db_from_model
+* When running schemadiff tests exclude table migrate\_version because it's left around after a previous round of tests
+* rename model/db sync commands and add new command update\_db\_from\_model
 * add experimental support for comparing metadata against database (issue #12)
-* - make test_shell not assume Python code is compiled - update results in test_shell so that it works in Postgresql - make Oracle changesets generate valid sql syntax when a modified column's default value changes to NULL
-* * integrate patch for Issue #14 by Kevin Dangoor * merge CHANGELOG from bugfix_0_4_2 branch
-* * fixed package name
-* * prepare work on 0.4.3
+* - make test\_shell not assume Python code is compiled - update results in test\_shell so that it works in Postgresql - make Oracle changesets generate valid sql syntax when a modified column's default value changes to NULL
+* \* integrate patch for Issue #14 by Kevin Dangoor \* merge CHANGELOG from bugfix\_0\_4\_2 branch
+* \* fixed package name
+* \* prepare work on 0.4.3
 * make import of sqlalchemy's SchemaGenerator work regardless of previous imports
 * - 0.4.1 changes added to CHANGELOG
-* - integrate setuptools patch by Kevin Dangoor - bump version to 0.4.2dev (0.4.1 will be released from branch bugfix-0_4_0)
+* - integrate setuptools patch by Kevin Dangoor - bump version to 0.4.2dev (0.4.1 will be released from branch bugfix-0\_4\_0)
 * - prepare for new development
 * - prepare for release 0.4.0
-* integrated patch by Christian Simms posted at http://groups.google.com/group/migrate-users/browse_thread/thread/952a2185baf70c4d fix all test cases for sqlalchemy>=0.4 and still works with sqlalchemy>=0.3.10 fixes #9
+* integrated patch by Christian Simms posted at http://groups.google.com/group/migrate-users/browse\_thread/thread/952a2185baf70c4d fix all test cases for sqlalchemy>=0.4 and still works with sqlalchemy>=0.3.10 fixes #9
 * moved trunk, branches and tags to project root fixes Issue #5
