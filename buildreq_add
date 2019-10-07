@@ -1,25 +1,2 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-testrepository
-python-subunit
-tempest-lib
-extras
-testtools
-testtools-python
-testrepository
-python-mimeparse
-pytest
-py
-sqlalchemy-migrate
-sqlalchemy-python
-six
-Tempita
-scripttest-python
-sqlparse
-python-mock
-decorator-python
-traceback2
-mariadb
-postgresql
-MySQL-python
-psycopg2

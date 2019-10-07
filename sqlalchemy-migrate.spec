@@ -4,7 +4,7 @@
 #
 Name     : sqlalchemy-migrate
 Version  : 0.12.0
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/2a/a0/7f24bcc3a84094629bba5ca023ef982730c70b250ae2088043234ca11422/sqlalchemy-migrate-0.12.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2a/a0/7f24bcc3a84094629bba5ca023ef982730c70b250ae2088043234ca11422/sqlalchemy-migrate-0.12.0.tar.gz
 Summary  : Database schema migration for SQLAlchemy
@@ -20,35 +20,16 @@ Requires: decorator
 Requires: pbr
 Requires: six
 Requires: sqlparse
-BuildRequires : MySQL-python
+BuildRequires : SQLAlchemy
 BuildRequires : Tempita
 BuildRequires : buildreq-distutils3
-BuildRequires : decorator-python
-BuildRequires : extras
-BuildRequires : mariadb
+BuildRequires : decorator
 BuildRequires : pbr
-BuildRequires : postgresql
-BuildRequires : psycopg2
-BuildRequires : py
-BuildRequires : pytest
-BuildRequires : python-mimeparse
-BuildRequires : python-mock
-BuildRequires : python-subunit
-BuildRequires : scripttest-python
 BuildRequires : six
-BuildRequires : sqlalchemy-migrate
-BuildRequires : sqlalchemy-python
 BuildRequires : sqlparse
-BuildRequires : tempest-lib
-BuildRequires : testrepository
-BuildRequires : testtools
-BuildRequires : testtools-python
-BuildRequires : traceback2
 
 %description
-This is a database migration repository.
-More information at
-http://code.google.com/p/sqlalchemy-migrate/
+==================
 
 %package bin
 Summary: bin components for the sqlalchemy-migrate package.
@@ -92,8 +73,13 @@ python3 components for the sqlalchemy-migrate package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1548435445
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1570479547
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -103,6 +89,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 py.test-2.7  --ignore=py2/lib/migrate/tests/changeset/databases/test_ibmdb2.py || :
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sqlalchemy-migrate
 cp COPYING %{buildroot}/usr/share/package-licenses/sqlalchemy-migrate/COPYING
