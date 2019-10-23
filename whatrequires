@@ -3,4 +3,3 @@ cinder
 glance
 keystone
 nova
-sqlalchemy-migrate

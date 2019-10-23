@@ -1,5 +1,5 @@
 PKG_NAME := sqlalchemy-migrate
-URL = https://files.pythonhosted.org/packages/2a/a0/7f24bcc3a84094629bba5ca023ef982730c70b250ae2088043234ca11422/sqlalchemy-migrate-0.12.0.tar.gz
+URL = https://files.pythonhosted.org/packages/36/bb/40f66b12b18fb03da76dcee31df75cca9e54b71d9d8a784bb95bfbadee2c/sqlalchemy-migrate-0.13.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
