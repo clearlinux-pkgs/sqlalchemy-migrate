@@ -4,7 +4,7 @@
 #
 Name     : sqlalchemy-migrate
 Version  : 0.13.0
-Release  : 37
+Release  : 38
 URL      : https://files.pythonhosted.org/packages/36/bb/40f66b12b18fb03da76dcee31df75cca9e54b71d9d8a784bb95bfbadee2c/sqlalchemy-migrate-0.13.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/36/bb/40f66b12b18fb03da76dcee31df75cca9e54b71d9d8a784bb95bfbadee2c/sqlalchemy-migrate-0.13.0.tar.gz
 Summary  : Database schema migration for SQLAlchemy
@@ -64,6 +64,7 @@ python components for the sqlalchemy-migrate package.
 Summary: python3 components for the sqlalchemy-migrate package.
 Group: Default
 Requires: python3-core
+Provides: pypi(sqlalchemy-migrate)
 
 %description python3
 python3 components for the sqlalchemy-migrate package.
@@ -71,13 +72,14 @@ python3 components for the sqlalchemy-migrate package.
 
 %prep
 %setup -q -n sqlalchemy-migrate-0.13.0
+cd %{_builddir}/sqlalchemy-migrate-0.13.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571838507
+export SOURCE_DATE_EPOCH=1582917457
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
